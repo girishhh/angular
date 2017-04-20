@@ -7,19 +7,21 @@ import {MenuItem} from 'primeng/primeng';
 })
 
 export class AppMenus {
-    private items: MenuItem[];
+    
+    private items: MenuItem[];      
+     private activeItem: MenuItem;       
 
     ngOnInit() {
         this.items = [
-                    {label: 'Setup Article'},
-                    {label: 'Create Article'},
-                    {label: 'Analysis'},
-                    {label: 'Versions'},
-                    {label: 'Social'},
-                    {label: 'SEO'},
-                    {label: 'Asset'},
-                    {label: 'Scraps'},
-                    {label: 'Notifications'}
-                ];
-    }
+                    {label: 'Setup Article',routerLink: [''] },
+                    {label: 'Create Article',routerLink: ['create_article']},
+                    {label: 'Analysis',routerLink: ['']},
+                    {label: 'Versions',routerLink: ['']},
+                    {label: 'Social',routerLink: ['']},
+                    {label: 'SEO',routerLink: ['']},
+                    {label: 'Asset',routerLink: ['']},
+                    {label: 'Scraps',routerLink: ['']},
+                    {label: 'Notifications',routerLink: ['']}
+                ];                
+    }    
 }
