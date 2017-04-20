@@ -38,7 +38,8 @@ export class TinymceComponent implements ControlValueAccessor {
         window.tinymce.init({
             selector: 'textarea',
             plugins: ['link','autoresize','wordcount','imagetools','image','textcolor','advlist','table'],
-            menubar: true,                    
+            menubar: false,                    
+            toolbar: "link | autoresize | wordcount | imagetools | image | textcolor | advlist | table",
             skin_url: 'assets/skins/lightgray',
             autoresize_overflow_padding: 0,
             setup: editor => {                

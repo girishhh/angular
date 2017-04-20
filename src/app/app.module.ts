@@ -11,7 +11,8 @@ import {TinymceModule} from '../app/tinymc.component/tinymc.module';
 import {RouterModule,Routes} from '@angular/router';
 
 const routes: Routes= [
-  {path: 'create_article',component: ArticleComponent}  
+  {path: 'create_article',component: ArticleComponent}  ,
+  {path: '#',redirectTo: ''}  
 ];
 
 @NgModule({
