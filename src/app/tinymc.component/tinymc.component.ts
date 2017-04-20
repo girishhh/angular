@@ -37,9 +37,8 @@ export class TinymceComponent implements ControlValueAccessor {
     ngAfterViewInit() {            
         window.tinymce.init({
             selector: 'textarea',
-            plugins: ['link','table' ,'autoresize','wordcount','imagetools','image','textcolor','advlist'],
-            menubar: false,
-            toolbar: ['link','table' ,'autoresize','wordcount','imagetools','image','textcolor','advlist','bold'],
+            plugins: ['link','autoresize','wordcount','imagetools','image','textcolor','advlist','table'],
+            menubar: true,                    
             skin_url: 'assets/skins/lightgray',
             autoresize_overflow_padding: 0,
             setup: editor => {                
