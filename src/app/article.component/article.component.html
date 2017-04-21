@@ -1,49 +1,64 @@
+<form #articleform="ngForm" (ngSubmit)="create_article(articleform)">
+    <div class="ui-g pull-right">        
+        <button pButton type="submit" label="Save Draft" (click)="onSubmit('draft')" class="ui-button-info"></button>
+        <button pButton type="submit" label="Review" ></button>
+        <button pButton type="submit" label="Publish" class="ui-button-success" (click)="onSubmit('pulish')"></button>
+    </div>
+    <br><br>
 
-<div class="ui-g pull-right">
-    <button pButton type="button" label="Save Draft" class="ui-button-info"></button>
-    <button pButton type="button" label="Review"></button>
-    <button pButton type="button" label="Publish" class="ui-button-success"></button>
-</div>
-<br><br>
-<div class="ui-g">
-    <div class="ui-g-2">
-        Heading
+    <div *ngIf="response && response.status==500"  style="color:red" [innerHtml]="response.error_messages">                
     </div>
-    <div class="ui-g-10">
-        <input type="text"  id="article-heading" pInputText />        
-    </div>
-</div>
-<br><br>
-<div class="ui-g">
-    <div class="ui-g-2">
-        Edit Url
-    </div>
-    <div class="ui-g-10">
-        <input type="text" id="article-url" pInputText />        
-    </div>
-</div>
 
-<br><br>
-<div class="ui-g">
-    <div class="ui-g-2">
-        Summary
-    </div>
-    <div class="ui-g-10">
-        <input type="text" id="article-summary" pInputText />        
-    </div>
-</div>
+    <div class="ui-g">
 
-<br><br>
-<div class="ui-g">
-    <div class="ui-g-12">        
-        Description
-    </div>
-</div>
+        <div class="ui-g-1">
+            Heading
+        </div>
 
-<br>
-<div class="ui-g">
-    <div class="ui-g-12">                
-        <tinymce>            
-        </tinymce>
+        <div class="ui-g-11">
+            <div class="article-form">
+                <input type="text"  name="heading" pInputText ngModel/>        
+            </div>
+        </div>
+
     </div>
-</div>
+
+    <br><br>
+    <div class="ui-g">
+        <div class="ui-g-1">
+            Edit Url
+        </div>
+        <div class="ui-g-11">
+            <div class=" article-form">
+                <input type="text" name="url" pInputText ngModel/>        
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <div class="ui-g">
+        <div class="ui-g-1">
+            Summary
+        </div>
+        <div class="ui-g-11">
+            <div class=" article-form">
+                <input type="text" name="summary" pInputText ngModel/>        
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <div class="ui-g">
+        <div class="ui-g-12">        
+            Description
+        </div>
+    </div>
+
+    <br>
+    <div class="ui-g">
+        <div class="ui-g-12">                
+            <tinymce name="description" ngModel>            
+            </tinymce>
+        </div>
+    </div>
+</form>

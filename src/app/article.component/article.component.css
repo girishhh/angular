@@ -1,0 +1,6 @@
+.article-form input[type='text']{
+    border: none ;
+    border-bottom: 1px solid black;
+    width: 100%;
+    outline: none;    
+}

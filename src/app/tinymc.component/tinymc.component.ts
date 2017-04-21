@@ -19,7 +19,7 @@ declare let tinymce: any;
             multi: true
         }
     ],
-    template: `<textarea id="{{elementId}}">{{initVal}}</textarea>`
+    template: `<textarea name="{{elementId}}" id="{{elementId}}">{{initVal}}</textarea>`
 })
 export class TinymceComponent implements ControlValueAccessor {
     elementId: String = "article-description";

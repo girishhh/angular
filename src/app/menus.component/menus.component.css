@@ -27,7 +27,7 @@
 }
 
 .menuheight{
-    height: 650px !important;
+    height: 750px !important;
 }
 
 
@@ -66,10 +66,9 @@ ul>li.list-group-item:hover {
     background-color:#87CEEB;
 }
 
-/*.input-text{
-    border: none !important;
-    border-bottom: 1px solid black;
-}*/
+.main_left_menu{
+  margin-left: 18px;
+}
 
 
 
