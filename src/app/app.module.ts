@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import {AppMenus} from '../app/menus.component/menus.component';
 import {WidgetsComponent} from '../app/widgets.component/widgets.component';
 import {ArticleComponent} from '../app/article.component/article.component';
-import {MenuModule,ButtonModule ,InputTextareaModule,InputTextModule} from 'primeng/primeng';
+import {MenuModule,ButtonModule ,InputTextareaModule,InputTextModule,PanelModule} from 'primeng/primeng';
 import {TinymceModule} from '../app/tinymc.component/tinymc.module';
 import {RouterModule,Routes} from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 const routes: Routes= [
   {path: 'create_article',component: ArticleComponent}  ,
@@ -28,7 +30,9 @@ const routes: Routes= [
     ButtonModule,
     InputTextModule,
     InputTextareaModule,
-    TinymceModule
+    TinymceModule,
+    PanelModule,
+    BrowserAnimationsModule
   ],  
   providers: [],
   bootstrap: [AppComponent]
