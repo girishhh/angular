@@ -11,7 +11,9 @@ import {MenuModule,ButtonModule ,InputTextareaModule,InputTextModule,PanelModule
 import {TinymceModule} from '../app/tinymc.component/tinymc.module';
 import {RouterModule,Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ArticleService} from './article.service/article.service'
+import {ArticleService} from './article.service/article.service';
+import {TimeNewsService} from './time-news.service/time-news.service';
+import {EarthQuakNewsService} from './earth-quak-news.service/earth-quak-news.service'
 
 const routes: Routes= [
   {path: 'create_article',component: ArticleComponent}  ,
@@ -36,7 +38,7 @@ const routes: Routes= [
     PanelModule,
     BrowserAnimationsModule
   ],  
-  providers: [ArticleService],
+  providers: [ArticleService,TimeNewsService,EarthQuakNewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

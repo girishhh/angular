@@ -1,7 +1,7 @@
 <form #articleform="ngForm" (ngSubmit)="create_article(articleform)">
     <div class="ui-g pull-right">        
         <button pButton type="submit" label="Save Draft" (click)="onSubmit('draft')" class="ui-button-info"></button>
-        <button pButton type="submit" label="Review" ></button>
+        <button pButton type="button" label="Review" ></button>
         <button pButton type="submit" label="Publish" class="ui-button-success" (click)="onSubmit('pulish')"></button>
     </div>
     <br><br>
