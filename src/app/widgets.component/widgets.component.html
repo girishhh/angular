@@ -17,14 +17,22 @@
     <p-header>
         BSE Sensex
     </p-header>
-   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+
+    <p *ngIf="latest_bse_article" [innerHTML]="latest_bse_article.title">        
+    </p>       
+
+    <p *ngIf="latest_bse_article">        
+        <a href="{{latest_bse_article.link}}" style="color: blue;" target="_blak">more....</a>
+    </p>
+   
 </p-panel>
 
 <p-panel >
     <p-header>
         @Times Now Tweeter Feed
-    </p-header>
-   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+    </p-header>    
+    <p *ngIf="lates_times_twitter_article" [innerHTML]="lates_times_twitter_article.content">        
+    </p>   
 </p-panel>
 
 <p-panel >

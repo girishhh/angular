@@ -13,12 +13,15 @@ import {RouterModule,Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ArticleService} from './article.service/article.service';
 import {TimeNewsService} from './time-news.service/time-news.service';
-import {EarthQuakNewsService} from './earth-quak-news.service/earth-quak-news.service'
+import {EarthQuakNewsService} from './earth-quak-news.service/earth-quak-news.service';
+import {TimesNewsTwitterService} from './times-news-twitter.service/times-news-twitter.service';
+import {BseSensexNewsService} from './bse-sensex-news.service/bse-sensex-news.service';
 
 const routes: Routes= [
   {path: 'create_article',component: ArticleComponent}  ,
   {path: 'article-list',component: ArticleListComponent},
-  {path: '#',redirectTo: ''}  
+  {path: '#',redirectTo: ''},  
+  {path: 'article-list/:from',component: ArticleListComponent}
 ];
 
 @NgModule({
@@ -38,7 +41,7 @@ const routes: Routes= [
     PanelModule,
     BrowserAnimationsModule
   ],  
-  providers: [ArticleService,TimeNewsService,EarthQuakNewsService],
+  providers: [ArticleService,TimeNewsService,EarthQuakNewsService,TimesNewsTwitterService,BseSensexNewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

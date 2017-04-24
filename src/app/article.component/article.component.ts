@@ -20,7 +20,7 @@ export class ArticleComponent{
         this.article_service.create_article({article: Object.assign(articleform.value,{status: this.article_status})}).subscribe(response => {
             this.response=response;
             if(response.status==200){
-                this.router.navigate(['article-list']);
+                this.router.navigate(['article-list',"article-creation"]);
             }
     });        
   }
