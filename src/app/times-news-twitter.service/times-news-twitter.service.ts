@@ -9,6 +9,10 @@ export class TimesNewsTwitterService{
     url= "http://kre-feed.mailfixx.com/?q=https://twitrss.me/twitter_user_to_rss/?user=kreatio_wcm";
 
     getLatestArticle(): Observable<any>{
-        return this.http.get(this.url).map(response=>response.json().responseData.feed.entries[0] as any);
+        return this.http.get(this.url).map(response=> { 
+            if(response.json().responseData.feed) {
+                response.json().responseData.feed.entries[0] as any
+            }            
+        } );
     }
 }

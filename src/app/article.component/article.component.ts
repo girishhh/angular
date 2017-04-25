@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 
 @Component({    
     templateUrl: './article.component.html',
-    styleUrls: ['./article.component.css']
+    styleUrls: ['../../assets/styles/form.css']
 })
 
 export class ArticleComponent{          
@@ -17,12 +17,14 @@ export class ArticleComponent{
     private  article_status: string;    
 
     create_article(articleform: NgForm)  {        
-        this.article_service.create_article({article: Object.assign(articleform.value,{status: this.article_status})}).subscribe(response => {
-            this.response=response;
-            if(response.status==200){
-                this.router.navigate(['article-list',"article-creation"]);
-            }
-    });        
+        if(articleform.form.valid){
+            this.article_service.create_article({article: Object.assign(articleform.value,{status: this.article_status})}).subscribe(response => {
+                this.response=response;
+                if(response.status==200){
+                    this.router.navigate(['article-list',"article-creation"]);
+                }
+            });        
+        }
   }
 
   onSubmit(status: string){

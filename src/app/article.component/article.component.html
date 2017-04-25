@@ -1,8 +1,8 @@
-<form #articleform="ngForm" (ngSubmit)="create_article(articleform)">
+<form #articleform="ngForm"  (ngSubmit)="create_article(articleform)">
     <div class="ui-g pull-right">        
-        <button pButton type="submit" label="Save Draft" (click)="onSubmit('draft')" class="ui-button-info"></button>
-        <button pButton type="button" label="Review" ></button>
-        <button pButton type="submit" label="Publish" class="ui-button-success" (click)="onSubmit('pulish')"></button>
+        <button pButton type="submit" label="Save Draft" (click)="onSubmit('draft')" [disabled]="!articleform.form.valid"  class="ui-button-info"></button>
+        <button pButton type="button" label="Review" [disabled]="!articleform.form.valid"></button>
+        <button pButton type="submit" label="Publish" class="ui-button-success"  [disabled]="!articleform.form.valid" (click)="onSubmit('pulish')"></button>
     </div>
     <br><br>
 
@@ -17,7 +17,11 @@
 
         <div class="ui-g-11">
             <div class="article-form">
-                <input type="text"  name="heading" pInputText ngModel/>        
+                <input type="text"  name="heading" pInputText required ngModel #articlename="ngModel"/>                        
+            </div>
+
+            <div [hidden]="articlename.valid || articlename.pristine" class="alert alert-danger">
+                Name is required
             </div>
         </div>
 
@@ -29,9 +33,15 @@
             Edit Url
         </div>
         <div class="ui-g-11">
+
             <div class=" article-form">
-                <input type="text" name="url" pInputText ngModel/>        
+                <input type="text" name="url" pInputText required ngModel #articleurl="ngModel" />                        
             </div>
+
+            <div [hidden]="articleurl.valid || articleurl.pristine" class="alert alert-danger">                
+                Article url is required
+            </div>
+
         </div>
     </div>
 
@@ -41,8 +51,12 @@
             Summary
         </div>
         <div class="ui-g-11">
-            <div class=" article-form">
-                <input type="text" name="summary" pInputText ngModel/>        
+            <div class="article-form">
+                <input type="text" name="summary" pInputText required ngModel #articlesummary="ngModel"/>
+            </div>
+
+            <div [hidden]="articlesummary.valid || articlesummary.pristine" class="alert alert-danger">                
+                Article summary is required
             </div>
         </div>
     </div>
@@ -57,7 +71,7 @@
     <br>
     <div class="ui-g">
         <div class="ui-g-12">                
-            <tinymce name="description" ngModel>            
+            <tinymce name="description" ngModel >            
             </tinymce>
         </div>
     </div>
