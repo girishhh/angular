@@ -37,10 +37,9 @@
 
 <p-panel >
     <p-header>
-        Times Of India News
+        Hindustan Times News
     </p-header>
 
-    <p *ngIf="lates_toi_article">
-        {{lates_toi_article.description}}   
+    <p *ngIf="lates_toi_article" [innerHTML]="lates_toi_article.content">        
     </p>    
 </p-panel>
