@@ -70,6 +70,10 @@ ul>li.list-group-item:hover {
   margin-left: 18px;
 }
 
+.side_nav{
+  border-right: 1px;
+}
+
 
 
 

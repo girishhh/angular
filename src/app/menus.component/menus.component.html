@@ -1,16 +1,7 @@
-
-    <!--<p-menu [model]="items">
-
-    </p-menu>-->    
-<div class="mainmenu_block main_left_menu">
-    <div class="menu_blk menuheight" >
-        <div class="leftnav mainmenu_block">
-            <ul class="list-group">                
-                <li class="list-group-item" *ngFor="let menu of menu_items">
-                    <a routerLink="{{menu.route}}" routerLinkActive="active">{{menu.name}}</a>
-                </li>                
-            </ul>
-        </div>
-    </div>
+<div class="side_nav">
+    <ul class="nav nav-pills nav-stacked">
+        <li class="list-group-item" *ngFor="let menu of menu_items">
+            <a routerLink="{{menu.route}}" routerLinkActive="active">{{menu.name}}</a>            
+        </li>                        
+    </ul>
 </div>
-
