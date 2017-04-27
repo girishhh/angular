@@ -9,7 +9,7 @@
             <tr>
                 <th>String Length</th>
                 <th>Letter Count</th>
-                <th>syllable_count</th>
+                <th>Syllable Count</th>
                 <th>Word Count</th>
                 <th>Sentence Count</th>
                 <th>Avg Words Per Sentence</th>
@@ -51,12 +51,11 @@
             <ng-template let-article pTemplate="item">            
                 <div class="ui-grid ui-grid-responsive"> 
                         <div class="ui-grid-row">                        
-                            <p [innerHTML]="article.title">        
-                        </p>       
-                        <p>        
+                            {{article.title}}                                                                                    
+                        </div>                    
+                        <div class="ui-grid-row">                        
                             <a href="{{article.link}}" style="color: blue;" target="_blak">more....</a>
-                        </p>
-                    </div>                    
+                        </div>
                 </div>
             </ng-template>
         </p-carousel>
