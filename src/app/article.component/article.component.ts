@@ -4,17 +4,21 @@ import { NgForm } from '@angular/forms';
 import {ArticleService} from '../article.service/article.service';
 import {ResponseHash} from '../response.hash';
 import {Router} from '@angular/router';
+import {ReadabilityScoreService} from '../readability-score.service/readability-score.service';
+import {WidgetsComponent} from '../widgets.component/widgets.component';
+import {ReadabilityScoreSharedService} from '../readability-score-shared.service/readability-score-shared.service';
 
 
 @Component({    
     templateUrl: './article.component.html',
-    styleUrls: ['../../assets/styles/form.css']
+    styleUrls: ['../../assets/styles/form.css']    
 })
 
 export class ArticleComponent{          
-    constructor(private article_service: ArticleService,private router: Router){}
+    constructor(private readability_shared_service: ReadabilityScoreSharedService,private readability_score_service: ReadabilityScoreService,private article_service: ArticleService,private router: Router){}
     private response: ResponseHash;
-    private  article_status: string;    
+    private  article_status: string;   
+    public test;
 
     create_article(articleform: NgForm)  {        
         if(articleform.form.valid){
@@ -30,5 +34,9 @@ export class ArticleComponent{
   onSubmit(status: string){
       this.article_status = status;
   }  
+
+  get_readability_scores(text){          
+    this.readability_shared_service.notifyOther(text);
+  }
 
 }

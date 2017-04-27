@@ -1,45 +1,86 @@
 <p-panel >
     <p-header>
         Readability Scores
-    </p-header>
-   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
-</p-panel>
-
-<p-panel >
-    <p-header>
-        Latest Earthquak
-    </p-header>
-    <p *ngIf="latest_earth_quak_article" [innerHTML]="latest_earth_quak_article.content">        
-    </p>   
-</p-panel>
-
-<p-panel >
-    <p-header>
-        BSE Sensex
-    </p-header>
-
-    <p *ngIf="latest_bse_article" [innerHTML]="latest_bse_article.title">        
-    </p>       
-
-    <p *ngIf="latest_bse_article">        
-        <a href="{{latest_bse_article.link}}" style="color: blue;" target="_blak">more....</a>
-    </p>
-   
-</p-panel>
-
-<p-panel >
-    <p-header>
-        @Times Now Tweeter Feed
     </p-header>    
-    <p *ngIf="lates_times_twitter_article" [innerHTML]="lates_times_twitter_article.content">        
-    </p>   
-</p-panel>
 
-<p-panel >
-    <p-header>
-        Hindustan Times News
-    </p-header>
+    <div *ngIf="readabilityscore" style="overflow-x:auto;">  
 
-    <p *ngIf="lates_toi_article" [innerHTML]="lates_toi_article.content">        
-    </p>    
-</p-panel>
+        <table class="table table-striped" >            
+            <tr>
+                <th>String Length</th>
+                <th>Letter Count</th>
+                <th>syllable_count</th>
+                <th>Word Count</th>
+                <th>Sentence Count</th>
+                <th>Avg Words Per Sentence</th>
+                <th>Avg Syllables Per Sentence</th>
+                <th>Score</th>
+            </tr>            
+            
+                <tr>                
+                    <td>{{readabilityscore.string_length}}</td>
+                    <td>{{readabilityscore.letter_count}}</td>
+                    <td>{{readabilityscore.syllable_count}}</td>
+                    <td>{{readabilityscore.word_count}}</td>
+                    <td>{{readabilityscore.sentence_count}}</td>
+                    <td>{{readabilityscore.average_words_per_sentence}}</td>                
+                    <td>{{readabilityscore.average_syllables_per_word}}</td>
+                    <td>{{readabilityscore.score}}</td>
+                </tr>
+            
+        </table>
+    </div>
+</p-panel>    
+
+
+<br>
+  <div *ngIf="earth_quak_articles">
+        <p-carousel  headerText="Earth quak  News" [value]="earth_quak_articles" numVisible="1" circular="circular" autoplayInterval="6000">
+            <ng-template let-article pTemplate="item">
+                <div class="ui-grid ui-grid-responsive">                                    
+                     <div class="ui-grid-row" [innerHTML]="article.content">                        
+                     </div>
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+<br>
+    <div *ngIf="bse_articles">
+        <p-carousel  headerText="BSE sensex  News" [value]="bse_articles" numVisible="1" circular="circular" autoplayInterval="6000">
+            <ng-template let-article pTemplate="item">            
+                <div class="ui-grid ui-grid-responsive"> 
+                        <div class="ui-grid-row">                        
+                            <p [innerHTML]="article.title">        
+                        </p>       
+                        <p>        
+                            <a href="{{article.link}}" style="color: blue;" target="_blak">more....</a>
+                        </p>
+                    </div>                    
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+<br>
+    <div *ngIf="times_twitter_articles">
+        <p-carousel  headerText="@timesnow tweeter feed" [value]="times_twitter_articles" numVisible="1" circular="circular" autoplayInterval="6000">
+            <ng-template let-article pTemplate="item">            
+                <div class="ui-grid ui-grid-responsive" [innerHTML]="article.content">                     
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+
+<br>
+<div *ngIf="hindustan_news_articles">
+    <p-carousel  headerText="Hindustan Time News" [value]="hindustan_news_articles" numVisible="1" circular="circular" autoplayInterval="6000">
+        <ng-template let-article pTemplate="item">            
+            <div class="ui-grid ui-grid-responsive">                
+                <div class="ui-grid-row" [innerHTML]="article.content">    
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

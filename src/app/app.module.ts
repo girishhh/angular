@@ -7,7 +7,7 @@ import {ArticleListComponent} from './article.list.component/article.list.compon
 import {AppMenus} from '../app/menus.component/menus.component';
 import {WidgetsComponent} from '../app/widgets.component/widgets.component';
 import {ArticleComponent} from '../app/article.component/article.component';
-import {MenuModule,ButtonModule ,InputTextareaModule,InputTextModule,PanelModule} from 'primeng/primeng';
+import {MenuModule,ButtonModule ,InputTextareaModule,InputTextModule,PanelModule,CarouselModule} from 'primeng/primeng';
 import {TinymceModule} from '../app/tinymc.component/tinymc.module';
 import {RouterModule,Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -16,6 +16,8 @@ import {TimeNewsService} from './time-news.service/time-news.service';
 import {EarthQuakNewsService} from './earth-quak-news.service/earth-quak-news.service';
 import {TimesNewsTwitterService} from './times-news-twitter.service/times-news-twitter.service';
 import {BseSensexNewsService} from './bse-sensex-news.service/bse-sensex-news.service';
+import {ReadabilityScoreService} from './readability-score.service/readability-score.service';
+import {ReadabilityScoreSharedService} from './readability-score-shared.service/readability-score-shared.service';
 
 const routes: Routes= [
   {path: 'create_article',component: ArticleComponent}  ,
@@ -39,9 +41,10 @@ const routes: Routes= [
     InputTextareaModule,
     TinymceModule,
     PanelModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CarouselModule
   ],  
-  providers: [ArticleService,TimeNewsService,EarthQuakNewsService,TimesNewsTwitterService,BseSensexNewsService],
+  providers: [ArticleService,TimeNewsService,EarthQuakNewsService,TimesNewsTwitterService,BseSensexNewsService,ReadabilityScoreService,ReadabilityScoreSharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
