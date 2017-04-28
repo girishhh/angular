@@ -3,8 +3,7 @@ import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class ReadabilityScoreSharedService{
-    private notify = new Subject<any>();
-    notifyObservable$ = this.notify.asObservable();
+    public notify = new Subject<any>();    
     constructor(){}
 
     public notifyOther(data: any) {

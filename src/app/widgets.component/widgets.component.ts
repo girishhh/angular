@@ -28,7 +28,7 @@ export class WidgetsComponent {
     }
 
     ngOnInit(){                         
-        this.readabiity_score_subscription = this.readability_shared_service.notifyObservable$.subscribe((text) => {            
+        this.readabiity_score_subscription = this.readability_shared_service.notify.subscribe((text) => {            
             this.readability_score_service.getReadabilityScore(text).subscribe(readability_score=>{this.readabilityscore = readability_score;}) 
         });        
 
