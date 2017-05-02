@@ -74,8 +74,8 @@
         </div>
         
         <div class="ui-g-10">                
-            <tinymce name="description" ngModel #descr="ngModel" (ngModelChange)="get_readability_scores(descr.value)">           
-            </tinymce>            
+            <app-tinymce-component name="description" ngModel #descr="ngModel" (ngModelChange)="get_readability_scores(descr.value)">           
+            </app-tinymce-component>            
         </div>
     </div>    
 </form>

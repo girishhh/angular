@@ -4,14 +4,17 @@ import {
     forwardRef,
     Input,
     Output,
-    NgZone
+    NgZone,
+    AfterViewInit,
+    OnDestroy
 } from '@angular/core';
+
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 declare var window: any;
-declare let tinymce: any;
+declare const tinymce: any;
 
 @Component({
-    selector: 'tinymce',
+    selector: 'app-tinymce-component',
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -21,9 +24,8 @@ declare let tinymce: any;
     ],
     template: `<textarea name="{{elementId}}" id="{{elementId}}" >{{initVal}}</textarea>`
 })
-export class TinymceComponent implements ControlValueAccessor {
-    elementId: String = "article-description";
-
+export class TinymceComponent implements ControlValueAccessor , AfterViewInit , OnDestroy {
+    elementId: String = 'article-description';
     @Output() change = new EventEmitter();
     @Output() ready = new EventEmitter();
     @Output() blur = new EventEmitter();
@@ -34,16 +36,20 @@ export class TinymceComponent implements ControlValueAccessor {
     zone;
     editor;
 
-    ngAfterViewInit() {            
+    ngAfterViewInit() {
         window.tinymce.init({
             selector: 'textarea',
-            themes: "modern",
-            plugins: ['link','autoresize','wordcount','imagetools','image','textcolor','advlist','table','preview','importcss','legacyoutput','searchreplace','tabfocus','textpattern','pagebreak','directionality','insertdatetime','print','template','fullpage','code','charmap','anchor','autolink'],
-            menubar: false,                    
-            toolbar: "link | autoresize | wordcount | imagetools | image | textcolor | advlist | table | preview  | importcss | legacyoutput | searchreplace | tabfocus  | textpattern | pagebreak | directionality | insertdatetime | print | template | fullpage | code | charmap | anchor | autolink",
+            themes: 'modern',
+            plugins: ['link' , 'autoresize' , 'wordcount' , 'imagetools' , 'image' , 'textcolor' , 'advlist',
+            'table' , 'preview' , 'importcss' , 'legacyoutput' , 'searchreplace' , 'tabfocus' , 'textpattern',
+            'pagebreak' , 'directionality' , 'insertdatetime' , 'print' , 'template' , 'fullpage' , 'code' ,
+            'charmap' , 'anchor' , 'autolink'],
+            menubar: false,
+            toolbar:
+            'link | autoresize | wordcount | imagetools | image | textcolor | advlist | table | preview  | importcss | legacyoutput | searchreplace | tabfocus  | textpattern | pagebreak | directionality | insertdatetime | print | template | fullpage | code | charmap | anchor | autolink',
             skin_url: 'assets/skins/lightgray',
             autoresize_overflow_padding: 0,
-            setup: editor => {                
+            setup: editor => {
                 this.editor = editor;
                 editor.on('keyup', () => {
                     const content = editor.getContent();
@@ -91,8 +97,8 @@ export class TinymceComponent implements ControlValueAccessor {
     writeValue(value) {
         this._value = value;
     }
-    onChange(_) { }
-    onTouched() { }
+    onChange(_) {}
+    onTouched() {}
     registerOnChange(fn) { this.onChange = fn; }
     registerOnTouched(fn) { this.onTouched = fn; }
 }
